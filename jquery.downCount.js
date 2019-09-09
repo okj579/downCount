@@ -6,13 +6,6 @@
  */
 
 (function ($) {
-    // basic constants
-    var units = [           // Milliseconds per...
-        24 * 60 * 60 * 60,  //     ...day
-        1000 * 60 * 60,     //     ...hour
-        1000 * 60,          //     ...minute
-        1000                //     ...second
-    ];
     $.fn.downCount = function (settings, callback) {
         settings = $.extend({},$.fn.downCount.defaults, settings);
 
@@ -29,6 +22,14 @@
         if (!(settings.lang in $.fn.downCount.lang)) {
             $.error('Unsupported language')
         }
+
+        // basic constants
+        var units = [               // Milliseconds per...
+            1000 * 60 * 60 * 24,    //     ...day
+            1000 * 60 * 60,         //     ...hour
+            1000 * 60,              //     ...minute
+            1000                    //     ...second
+        ];
 
         var lang = $.fn.downCount.lang[settings.lang].split(0);
 
@@ -50,7 +51,7 @@
         function countdown () {
             var difference = settings.date - new Date; // difference of dates
 
-            // if difference is negative than it's pass the target date
+            // if difference is negative than it's past the target date
             if (difference < 0) {
                 // stop timer
                 clearInterval(interval);
@@ -67,11 +68,9 @@
                     difference
                         % (units[unitIndex-1] || Infinity)
                         / units[unitIndex]
-                    ),
-                    numText = numUnits > 9 ? numUnits : '0' + numUnits,
-                    labelText = lang[ unitIndex*2 + (numUnits !== 1)];
-                numberFields.eq(unitIndex).text(numText);
-                labelFields.eq(unitIndex).text(labelText);
+                    );
+                numberFields.eq(unitIndex).text(numUnits > 9 ? numUnits : '0' + numUnits);
+                labelFields.eq(unitIndex).text(lang[ unitIndex*2 + (numUnits !== 1)]);
             });
         }
 
@@ -80,7 +79,6 @@
         countdown();
     };
     $.fn.downCount.defaults = {
-        date: null,
         lang: 'en'
     };
     $.fn.downCount.lang = {
