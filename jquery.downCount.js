@@ -26,7 +26,7 @@
                 $.error('Invalid date');
             }
         }
-        if (!(settings.lang in $.fn.downCount.texts)) {
+        if (!(settings.lang in $.fn.downCount.lang)) {
             $.error('Unsupported language')
         }
 
