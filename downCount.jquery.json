@@ -1,6 +1,6 @@
 {
     "name": "downCount",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "title": "downCount - Simple Countdown clock with offset",
     "description": "Simple countdown plugin that accounts for timezone",
     "keywords": [
@@ -8,10 +8,15 @@
         "timezone",
         "offset"
     ],
-    "author": {
-        "name": "Sonny T.",
-        "url": "https://sonnyt.com"
-    },
+    "author": [
+        {
+            "name": "Owen Kieffer-Jones"
+        },
+        {
+            "name": "Sonny T.",
+            "url": "https://sonnyt.com"
+        }
+    ],
     "licenses": [
         {
             "type": "MIT",
@@ -19,7 +24,7 @@
         }
     ],
     "homepage": "http://sonnyt.com/downCount-plugin/",
-    "docs": "https://github.com/sonnyt/downCount#downCount",
+    "docs": "https://github.com/okj579/downCount#downCount",
     "demo": "http://sonnyt.com/downCount",
     "dependencies": {
         "jquery": ">=1.7"
